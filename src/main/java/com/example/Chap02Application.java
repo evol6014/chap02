@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.mapper.DeptMapper;
+
 @SpringBootApplication
 public class Chap02Application implements CommandLineRunner {
 	
@@ -17,13 +19,13 @@ public class Chap02Application implements CommandLineRunner {
 //		SpringApplication.run(Chap02Application.class, args);
 		SpringApplication application = new SpringApplication(Chap02Application.class);
 //		application.setAdditionalProfiles("mysql");
-		application.setAdditionalProfiles("mysql-ec2");
-//		application.setAdditionalProfiles("oracle");
+//		application.setAdditionalProfiles("mysql-ec2");
+		application.setAdditionalProfiles("oracle");
 		application.run(args);
 	}
 
 	@Override
-	public void run(String... arg0) throws Exception {
+	public void run(String... args) throws Exception {
 		System.out.println("###");
 		System.out.println("###" + ds.getDriverClassName());
 		System.out.println("###" + ds.getUrl());

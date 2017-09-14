@@ -1,6 +1,7 @@
 package com.example.domain;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Dept {
 	
 	@Id		//	프라이머리키
 	@Column(precision=2)
-	private BigDecimal deptno;
+	private BigInteger deptno;
 	@Column(length=14, nullable=false)
 	private String dname;
 	@Column(length=13)

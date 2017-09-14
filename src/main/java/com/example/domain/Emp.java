@@ -1,38 +1,47 @@
 package com.example.domain;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Emp {
-
+	
+	public enum Gender {
+		M, F;
+	}
+	
 	@Id
 	@Column(precision=4)
-	private BigDecimal empno;
+	private BigInteger empno;
 	@Column(length=10, nullable=false)
 	private String ename;
+	@Enumerated(EnumType.STRING)
 	@Column(length=1)
-	private char  gender;
+	private Gender gender;
 	@Column(length=9)
 	private String job;
-	@Column(precision=4)
-	private BigDecimal mgr;
+	private Integer mgr;
+	@Temporal(TemporalType.DATE)
 	private Date hiredate;
-	@Column(precision=7)
 	private BigDecimal sal;
-	@Column(precision=7)
 	private BigDecimal comm;
-	@Column(precision=2)
-	private BigDecimal deptno;
+	private Integer deptno;
 }
 //EMPNO	 	NUMBER(4) 				CONSTRAINT EMP_EMPNO_PK PRIMARY KEY,
 //ENAME 	VARCHAR2(10 CHAR) 	NOT NULL, -- CHAR을 추가함으로써 글자단위로 변경.

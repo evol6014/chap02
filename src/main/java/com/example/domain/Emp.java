@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity	// JPA에서 엔티티를 관리하기 위해 준다.
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
